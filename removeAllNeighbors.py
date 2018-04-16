@@ -8,7 +8,6 @@ if not sys.argv[1:]:
 
 for node in sys.argv[1:]:
 	api = Iota('http://'+node+':14265')
-	print(node)
 	neighbors = api.getNeighbors()
 	uris = []
 
@@ -16,4 +15,5 @@ for node in sys.argv[1:]:
 		addr = v.get("address")
 		protocol = v.get("connectionType")
 		uris.append(protocol+"://"+addr)
-		api.remove_neighbors(uris)
+
+	api.remove_neighbors(uris)
